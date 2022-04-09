@@ -10,11 +10,11 @@ pipeline {
       steps{
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
-          echo '$dockerImage'
+          sh 'echo $dockerImage'
         }
       }
     }
-    stage('Deploy image') {
+    stage('Push Image to AWS ECR') {
         steps{
             script{
                 docker.withRegistry("https://" + registry, "ecr:ap-south-1:" + registryCredential) {
@@ -24,7 +24,7 @@ pipeline {
         }
     }
     
-    stage('test AWS credentials') {
+    stage('Deploy docker image to AWS ECS container') {
             steps {
                 withAWS(credentials: 'aws-ecr', region: 'ap-south-1') {
                   sh "chmod +x ./jenkins_ecr.sh"
