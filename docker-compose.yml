@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image:  kunalk07/docker-jenkins-cicd:1.4
+    image:  $dockerImage
     ports:
       - "5000:5000"
     logging:
