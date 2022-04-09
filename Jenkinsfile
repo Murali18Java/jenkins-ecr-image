@@ -23,8 +23,7 @@ pipeline {
         }
     }
     
-    stages {
-        stage('test AWS credentials') {
+    stage('test AWS credentials') {
             steps {
                 withAWS(credentials: 'aws-ecr', region: 'ap-south-1') {
                   sh "chmod +x ./jenkins_ecr.sh"
@@ -33,5 +32,4 @@ pipeline {
             }
         }
     }
-  }
 }
