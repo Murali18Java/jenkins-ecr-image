@@ -24,13 +24,13 @@ pipeline {
         }
     }
     
-    stage('Deploy docker image to AWS ECS container') {
-            steps {
-                withAWS(credentials: 'aws-ecr-credentials', region: 'us-east-1') {
-                  sh "chmod +x ./jenkins_ecr.sh"
-                  sh "./jenkins_ecr.sh"
-                }
-            }
-        }
-    }
+//     stage('Deploy docker image to AWS ECS container') {
+//             steps {
+//                 withAWS(credentials: 'aws-ecr-credentials', region: 'us-east-1') {
+//                   sh "chmod +x ./jenkins_ecr.sh"
+//                   sh "./jenkins_ecr.sh"
+//                 }
+//             }
+//         }
+//     }
 }
