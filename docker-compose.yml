@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: 540451631109.dkr.ecr.us-east-1.amazonaws.com/jenkins-cicd:latest
+    image: 540451631109.dkr.ecr.us-east-1.amazonaws.com/jenkins-ecr-cicd:latest
     ports:
       - "5000:5000"
     logging:
