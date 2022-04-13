@@ -6,6 +6,14 @@ pipeline {
   }
   agent any
   stages {
+  stage('Create ECR repository') {
+      steps {
+            withAWS(credentials: 'aws-ecr-credentials', region: 'us-east-1') {
+                  sh "chmod +x ./create_repo.sh"
+                  sh "./create_repo.sh"
+                }
+            }
+      }
     stage('Building image') {
       steps{
         script {
